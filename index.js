@@ -29,18 +29,18 @@ app.delete('/api/birds/:id', birdCtrl.removeBird);
 // });
 
 seeder.connect(mongoUri, function(){
-  // console.log('db connected at', mongoUri);
-  // console.log('cron job running', counter++)
-  // seeder.loadModels(['./models/birdModel']);
-  // console.log(111)
-  // seeder.clearModels(['Birds'], function(){
-  //   console.log(222)
-  //   seeder.populateModels([{
-  //     'model': 'Birds',
-  //     'documents': birds
-  //   }]);
-  //   console.log(333)
-  // });
+  console.log('db connected at', mongoUri);
+  console.log('cron job running', counter++)
+  seeder.loadModels(['./models/birdModel']);
+  console.log(111)
+  seeder.clearModels(['Birds'], function(){
+    console.log(222)
+    seeder.populateModels([{
+      'model': 'Birds',
+      'documents': birds
+    }]);
+    console.log(333)
+  });
 });
 
 var counter = 0;
