@@ -5,16 +5,16 @@ var birdSchema = new mongoose.Schema({
   familyName: { type: String, lowercase: true, index: true, require: true },
   family: { type: String, lowercase: true, index: true},
   commonName: { type: String, lowercase: true, index: true, require: true },
-  scientificName: { type: String },
+  scientificName: { type: String, index: true, unique: true, require: true },
   authority: { type: String, lowercase: true},
-  BirdLifeTaxonomicTreatment: { type: String, lowercase: true, enum: ['r', 'nr', 'ur'] },
+  BirdLifeTaxonomicTreatment: { type: String, lowercase: true, enum: ['r', 'nr', 'ur']},
   IUCNRedListCategory2014: { type: String, lowercase: true, enum: ["lc", "nt", "vu", "en", "cr", "cr (pe)", "cr (pew)", "ew", "ex", "dd", "nr", "ur"] },
-  synonyms: { type: String, lowercase: true },
-  alternativeCommonNames: { type: String, lowercase: true, index: true },
-  taxonomicNotes: { type: String, lowercase: true },
-  taxonomicSources: { type: String, lowercase: true },
-  SISRecID: { type: Number, sparse: true },
-  SpcRecID: { type: Number, sparse: true }
+  synonyms: { type: String, lowercase: true},
+  alternativeCommonNames: { type: String, lowercase: true, index: true},
+  taxonomicNotes: { type: String, lowercase: true},
+  taxonomicSources: { type: String, lowercase: true},
+  SISRecID: { type: Number, index: true, unique: true },
+  SpcRecID: { type: Number, index: true, unique: true }
 });
 
 module.exports = mongoose.model('Birds', birdSchema);
