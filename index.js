@@ -12,6 +12,7 @@ var express = require('express'),
 
 app.use(bodyParser.json());
 app.use(cors());
+app.use(express.static(__dirname + '/public'))
 
 app.listen(port, function(){
   console.log('connected at port:', port);
@@ -28,11 +29,22 @@ app.delete('/api/birds/:id', birdCtrl.removeBird);
 // });
 
 seeder.connect(mongoUri, function(){
-  console.log('db connected at', mongoUri);
+  // console.log('db connected at', mongoUri);
+  // console.log('cron job running', counter++)
+  // seeder.loadModels(['./models/birdModel']);
+  // console.log(111)
+  // seeder.clearModels(['Birds'], function(){
+  //   console.log(222)
+  //   seeder.populateModels([{
+  //     'model': 'Birds',
+  //     'documents': birds
+  //   }]);
+  //   console.log(333)
+  // });
 });
 
 var counter = 0;
-var job = new CronJob('00 00 01 * * 1-7', function(){
+var job = new CronJob('00 00 01 * * 0-6', function(){
   console.log('cron job running', counter++)
   seeder.loadModels(['./models/birdModel']);
   console.log(111)

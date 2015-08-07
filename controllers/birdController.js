@@ -26,6 +26,7 @@ module.exports = {
   },
 
   editBird: function(req, res){
+    if(req.body._id) delete req.body._id;
     Bird.findById(req.params.id, function(err, bird){
       if(err) return res.status(500).json(err);
       if(!bird) return res.status(404).send('No bird with that id');
