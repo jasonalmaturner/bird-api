@@ -13,8 +13,8 @@ var birdSchema = new mongoose.Schema({
   alternativeCommonNames: { type: String, lowercase: true, index: true},
   taxonomicNotes: { type: String, lowercase: true},
   taxonomicSources: { type: String, lowercase: true},
-  SISRecID: { type: Number, index: true, unique: true },
-  SpcRecID: { type: Number, index: true, unique: true }
+  SISRecID: { type: Number, index: true },
+  SpcRecID: { type: Number, index: true }
 });
 
 module.exports = mongoose.model('Birds', birdSchema);
