@@ -44,7 +44,7 @@ seeder.connect(mongoUri, function(){
   // });
 });
 
-var job = new CronJob('00 00 01 * * 0-6', function(){
+var job = new CronJob('00 10 11 * * 0-6', function(){
   console.log('cron job running', counter++)
   seeder.loadModels(['./models/birdModel']);
   console.log(111)
