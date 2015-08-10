@@ -12,13 +12,13 @@
     <h1>Practice Bird API</h1>
     <span>
       This API was built with the the purpose of practicing RESTful API calls. The data is from BirdLife International. It can be
-      downloaded from http://www.birdlife.org/datazone/userfiles/file/Species/Taxonomy/BirdLife_Checklist_Version_70.zip. See
-      http://birdlife.org/datazone/info/taxonomy for more details.
+      downloaded from <a href="http://www.birdlife.org/datazone/userfiles/file/Species/Taxonomy/BirdLife_Checklist_Version_70.zip">http://www.birdlife.org/datazone/userfiles/file/Species/Taxonomy/BirdLife_Checklist_Version_70.zip</a>. See
+      <a href="http://www.birdlife.org/datazone/info/taxonomy">http://www.birdlife.org/datazone/info/taxonomy</a> for more details.
     </span>
-    <p>The base url is http://www.bird-api.com.</p>
+    <p>The base url is http://bird-api.com.</p>
     <div class="endpoint">
       <h2>GET</h2>
-      <p>The endpoint for making a GET request is <a href="/api/birds">/api/birds</a></p>
+      <p>The endpoint for making a GET request is <a href="/api/birds">http://bird-api.com/api/birds</a></p>
       <p>The following keys can be added to the url to query the bird data:</p>
       <ul>
         <li>order</li>
@@ -84,11 +84,11 @@
           <p>SpcRecID is the unique id number used in previous versions of the checklist before 2014.</p>
         </div>
       </div>
-      <div class="example"><a href="/api/birds?order=passeriformes&familyName=icteridae&IUCNRedListCategory2014=cr">/api/birds?order=passeriformes&familyName=icteridae&IUCNRedListCategory2014=cr</a></div>
+      <div class="example"><a href="/api/birds?order=passeriformes&familyName=icteridae&IUCNRedListCategory2014=cr">http://bird-api.com/api/birds?order=passeriformes&familyName=icteridae&IUCNRedListCategory2014=cr</a></div>
     </div>
     <div class="endpoint">
       <h2>POST</h2>
-      <p>The endpoint for making a POST request is /api/birds</p>
+      <p>The endpoint for making a POST request is http://bird-api.com/api/birds</p>
       <p>
         The only required fields for creating and posting your bird are the order, familyName, commonName, and scientificName. Feel free to
         create your own unique bird. Remember that proper formatting for the scientificName is to capitalize the genus, but not the species.
@@ -113,7 +113,7 @@
     </div>
     <div class="endpoint">
       <h2>PUT</h2>
-      <p>The endpoint for making a PUT request is /api/birds/:_id</p>
+      <p>The endpoint for making a PUT request is http://bird-api.com/api/birds/:_id</p>
       <p>
         The endpoint needs the _id of the bird you want to edit to make a PUT request. The body of the request needs to only contain the keys and corresponding
         values that you want to change. Any fields left out will not be changed.
@@ -133,7 +133,7 @@
     </div>
     <div class="endpoint">
       <h2>DELETE</h2>
-      <p>The endpoint for making a DELETE request is /api/birds/:_id</p>
+      <p>The endpoint for making a DELETE request is http://bird-api.com/api/birds/:_id</p>
       <p>
         The endpoint needs the _id of the bird you want to remove from the database.
       </p>
