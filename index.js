@@ -10,6 +10,7 @@ var express = require('express'),
   birdCtrl = require('./controllers/birdController'),
   CronJob = require('cron').CronJob;
 
+var counter = 0;
 app.use(bodyParser.json());
 app.use(cors());
 app.use(express.static(__dirname + '/public'))
@@ -43,7 +44,6 @@ seeder.connect(mongoUri, function(){
   });
 });
 
-// var counter = 0;
 // var job = new CronJob('00 00 01 * * 0-6', function(){
 //   console.log('cron job running', counter++)
 //   seeder.loadModels(['./models/birdModel']);
