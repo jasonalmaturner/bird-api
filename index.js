@@ -4,7 +4,7 @@ var express = require('express'),
   cors = require('cors'),
   mongoose = require('mongoose'),
   mongoUri = process.env.MONGOURI || 'mongodb://localhost:27017/sample',
-  port = process.env.EXPRESS_PORT || 9001,
+  port = process.env.EXPRESS_PORT || 80,
   seeder = require('mongoose-seed'),
   birds = require('./seeds/birds.json'),
   birdCtrl = require('./controllers/birdController'),
@@ -29,23 +29,8 @@ app.delete('/api/birds/:id', birdCtrl.removeBird);
 // });
 
 seeder.connect(mongoUri, function(){
-  // console.log('db connected at', mongoUri);
-  // console.log('cron job running', counter++);
-  // seeder.loadModels(['./models/birdModel']);
-  // console.log(111)
-  // seeder.clearModels(['Birds'], function(){
-  //   console.log(222)
-  //   seeder.populateModels([{
-  //     'model': 'Birds',
-  //     'documents': birds
-  //   }]);
-  //   console.log(333);
-  // });
-});
-
-var counter = 0;
-var job = new CronJob('00 00 01 * * 0-6', function(){
-  console.log('cron job running', counter++)
+  console.log('db connected at', mongoUri);
+  console.log('cron job running', counter++);
   seeder.loadModels(['./models/birdModel']);
   console.log(111)
   seeder.clearModels(['Birds'], function(){
@@ -54,8 +39,23 @@ var job = new CronJob('00 00 01 * * 0-6', function(){
       'model': 'Birds',
       'documents': birds
     }]);
-    console.log(333)
+    console.log(333);
   });
-}, function(){
-  console.log('db reset');
-}, true);
+});
+
+// var counter = 0;
+// var job = new CronJob('00 00 01 * * 0-6', function(){
+//   console.log('cron job running', counter++)
+//   seeder.loadModels(['./models/birdModel']);
+//   console.log(111)
+//   seeder.clearModels(['Birds'], function(){
+//     console.log(222)
+//     seeder.populateModels([{
+//       'model': 'Birds',
+//       'documents': birds
+//     }]);
+//     console.log(333)
+//   });
+// }, function(){
+//   console.log('db reset');
+// }, true);
