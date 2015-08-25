@@ -24,25 +24,25 @@ app.post('/api/birds', birdCtrl.postBird);
 app.put('/api/birds/:id', birdCtrl.editBird);
 app.delete('/api/birds/:id', birdCtrl.removeBird);
 
-mongoose.connect(mongoUri);
-mongoose.connection.once('open', function(){
-  console.log('db connected at:', mongoUri);
-});
-
-// seeder.connect(mongoUri, function(){
-//   console.log('db connected at', mongoUri);
-//   console.log('cron job running', counter++);
-//   seeder.loadModels(['./models/birdModel']);
-//   console.log(111)
-//   seeder.clearModels(['Birds'], function(){
-//     console.log(222)
-//     seeder.populateModels([{
-//       'model': 'Birds',
-//       'documents': birds
-//     }]);
-//     console.log(333);
-//   });
+// mongoose.connect(mongoUri);
+// mongoose.connection.once('open', function(){
+//   console.log('db connected at:', mongoUri);
 // });
+
+seeder.connect(mongoUri, function(){
+  console.log('db connected at', mongoUri);
+  console.log('cron job running', counter++);
+  seeder.loadModels(['./models/birdModel']);
+  console.log(111)
+  seeder.clearModels(['Birds'], function(){
+    console.log(222)
+    seeder.populateModels([{
+      'model': 'Birds',
+      'documents': birds
+    }]);
+    console.log(333);
+  });
+});
 //
 // var job = new CronJob('00 50 12 * * 0-6', function(){
 //   console.log('cron job running', counter++)
